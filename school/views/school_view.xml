@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <act_window
+        id="school_action"
+        name="School"
+        res_model="school.data"/>
+
+    <menuitem
+        id="school_menuitem"
+        name="School List"
+        action=""
+        parent=""
+        sequence="5"/>
+
+    <menuitem
+        id="school_menuitem_submenu"
+        name="School List"
+        action="school_action"
+        parent="school_menuitem"
+        sequence="5"/>
+
+    <record id="school_view_form" model="ir.ui.view">
+        <field name="name">School Form</field>
+        <field name="model">school.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="school_id"/>
+                    <field name="school_name"/>
+                </group>
+                <group>
+                    <field name="school_address"/>
+                    <field name="school_state"/>
+                    <field name="school_city"/>
+                    <field name="school_zip"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_view_tree" model="ir.ui.view">
+        <field name="name">School Form</field>
+        <field name="model">school.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="school_id"/>
+                <field name="school_name"/>
+                <field name="school_address"/>
+                <field name="school_state"/>
+                <field name="school_city"/>
+                <field name="school_zip"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_view_search" model="ir.ui.view">
+        <field name="name">School Form</field>
+        <field name="model">school.data</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="school_id"/>
+                <field name="school_name"/>
+                <field name="school_address"/>
+                <field name="school_state"/>
+                <field name="school_city"/>
+                <field name="school_zip"/>
+            </search>
+        </field>
+    </record>
+</odoo>

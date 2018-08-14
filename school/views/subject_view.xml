@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <act_window
+        id="subject_action"
+        name="Subject"
+        res_model="subject.data"/>
+
+    <menuitem
+        id="subject_menuitem"
+        name="Subject List"
+        action=""
+        parent=""
+        sequence="5"/>
+
+    <menuitem
+        id="subject_menuitem_submenu"
+        name="Subject List"
+        action="subject_action"
+        parent="school_menuitem"
+        sequence="5"/>
+
+    <record id="subject_view_form" model="ir.ui.view">
+        <field name="name">Subject Form</field>
+        <field name="model">subject.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="subject_id"/>
+                    <field name="subject_name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="subject_view_tree" model="ir.ui.view">
+        <field name="name">Subject Form</field>
+        <field name="model">subject.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="subject_id"/>
+                <field name="subject_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="subject_view_search" model="ir.ui.view">
+        <field name="name">Subject Form</field>
+        <field name="model">subject.data</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="subject_id"/>
+                <field name="subject_name"/>
+            </search>
+        </field>
+    </record>
+</odoo>

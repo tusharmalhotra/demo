@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <act_window
+        id="class_action"
+        name="class"
+        res_model="class.data"/>
+
+    <menuitem
+        id="class_menuitem"
+        name="Class Data"
+        action=""
+        parent=""
+        sequence="5"/>
+
+    <menuitem
+        id="class_menuitem_submenu"
+        name="class List"
+        action="class_action"
+        parent="school_menuitem"
+        sequence="5"/>
+
+    <record id="class_view_form" model="ir.ui.view">
+        <field name="name">Class Form</field>
+        <field name="model">class.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="class_id"/>
+                    <field name="class_room"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="class_view_tree" model="ir.ui.view">
+        <field name="name">class Form</field>
+        <field name="model">class.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="class_id"/>
+                <field name="class_room"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="class_view_search" model="ir.ui.view">
+        <field name="name">class Form</field>
+        <field name="model">class.data</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="class_id"/>
+                <field name="class_room"/>
+            </search>
+        </field>
+    </record>
+</odoo>
