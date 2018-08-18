@@ -26,10 +26,24 @@
             <form>
                 <group>
                     <field name="student_id"/>
-                    <field name="student_name"/>
-                    <field name="student_class"/>
+                    <field name="name"/>
+                    <field name="student_class"  widget="many2one">
+                        <tree editable="bottom">
+                            <field name="class_id"/>
+                            <field name="name"/>
+                            <field name="class_room"/>
+                        </tree>
+                    </field>
+                    <field name="student_subject" widget="many2many">
+                        <tree editable="bottom">
+                            <field name="subject_id"/>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                    <field name="student_level"/>
                 </group>
                 <group>
+                    <field name="student_phone"/>
                     <field name="student_address"/>
                     <field name="student_state"/>
                     <field name="student_city"/>
@@ -45,12 +59,16 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="student_id"/>
-                <field name="student_name"/>
-                <field name="student_name"/>
+                <field name="name"/>
+                <field name="student_class"/>
+                <field name="student_subject"/>
+                <field name="student_phone"/>
                 <field name="student_address"/>
                 <field name="student_state"/>
                 <field name="student_city"/>
                 <field name="student_zip"/>
+                <field name="student_level"/>
+                <!--<field name="context">{ 'graph_mode': 'pie' }</field>-->
             </tree>
         </field>
     </record>
@@ -61,8 +79,10 @@
         <field name="arch" type="xml">
             <search>
                 <field name="student_id"/>
-                <field name="student_name"/>
-                <field name="student_name"/>
+                <field name="name"/>
+                <field name="student_class"/>
+                <field name="student_subject"/>
+                <field name="student_phone"/>
                 <field name="student_address"/>
                 <field name="student_state"/>
                 <field name="student_city"/>

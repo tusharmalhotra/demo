@@ -1,0 +1,76 @@
+<odoo>
+    <act_window
+        id="teacher_action"
+        name="Teacher"
+        res_model="hr.employee"/>
+
+    <menuitem
+        id="teacher_menuitem"
+        name="Teacher Data"
+        action=""
+        parent=""
+        sequence="5"/>
+
+    <menuitem
+        id="teacher_menuitem_submenu"
+        name="Teacher List"
+        action="teacher_action"
+        parent="school_menuitem"
+        sequence="5"/>
+
+    <!-- Add instructor field to existing view -->
+
+    <record id="hr_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notes']" position="before">
+                <group string="More Information">
+                    <field name="teacher_id"/>
+                    <field name="teacher_class" widget="many2many">
+                         <tree editable="bottom">
+                            <field name="name"/>
+                         </tree>
+                    </field>
+                    <field name="teacher_age" string="Teacher Age"/>
+                    <field name="teacher_subject" widget="many2many">
+                         <tree editable="bottom">
+                            <field name="name"/>
+                         </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+
+    </record>
+
+    <record model="ir.actions.act_window" id="contact_list_action">
+        <field name="name">Contacts</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notes']" position="before">
+                <group string="More Information">
+                    <field name="teacher_id"/>
+                    <field name="name"/>
+                    <field name="name"/>
+                    <!--<field name="teacher_class" widget="many2many">-->
+                         <!--<tree editable="bottom">-->
+                            <!--<field name="name"/>-->
+                         <!--</tree>-->
+                    <!--</field>-->
+                    <!--<field name="teacher_age" string="Teacher Age"/>-->
+                    <!--<field name="teacher_subject" widget="many2many">-->
+                         <!--<tree editable="bottom">-->
+                            <!--<field name="name"/>-->
+                         <!--</tree>-->
+                    <!--</field>-->
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

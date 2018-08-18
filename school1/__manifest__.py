@@ -7,8 +7,14 @@
     'website' : 'https://www.ksolves.com',
     'category' : 'School_Data',
     'version' : '11.0.1.1.0',
-    'depends' : ['base'],
-    'data' : ['views/school_view.xml','views/subject_view.xml','views/student_view.xml','views/class_view.xml'],
+    'depends' : ['base', 'hr'],
+    'data' : ['views/school_view.xml',
+              'views/subject_view.xml',
+              'views/class_view.xml',
+              'views/student_view.xml',
+              'views/teacher_view.xml',
+              'views/exam_view.xml',
+              'views/exam_wizard_view.xml'],
     # 'demo' : ['demo.xml'],
 }
 

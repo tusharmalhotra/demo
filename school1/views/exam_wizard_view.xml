@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--<act_window-->
+            <!--id = "student_wizard_action"-->
+            <!--name = "Student Marks"-->
+            <!--res_model = "student.wizard.data"-->
+            <!--src_model = "exam.data"-->
+            <!--view_mode = "form"-->
+            <!--target = "new"-->
+            <!--multi = "True"/>-->
+    <act_window
+        id="exam_wizard_action"
+        name="Exam Wizard"
+        res_model="exam.wizard.data"
+        view_mode = "form,tree"
+        target = "new"/>
+        <!--context="{'journal_type':context.get('journal_type')}"/>-->
+
+    <menuitem
+        id="exam_wizard_menuitem"
+        name="Exam Wizard"
+        action=""
+        parent=""
+        sequence="5"/>
+
+    <menuitem
+        id="exam_wizard_menuitem_submenu"
+        name="Exam Wizard"
+        action="exam_wizard_action"
+        parent="school_menuitem"
+        sequence="5"/>
+
+    <record id = "exam_wizard_view" model="ir.ui.view">
+        <field name="name">Exam Wizard</field>
+        <field name="model">exam.wizard.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="exam_ids" string="Exam ID"/>
+                    <field name="student_names"/>
+                    <field name="subject_names"/>
+                    <field name="level"/>
+                    <field name="marks"/>
+                </group>
+                <footer>
+                    <button name="set_student_level" string="Create" class="oe_right oe_highlight" type="object" icon="fa-check-circle-o"/>
+                    <!--<button string="Test Connection" type="object" name="action_test_connection" class="" icon="fa-bolt" attrs=""/>-->
+                    <button string="cancel" class="or_right" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="exam_wizard_view_tree" model="ir.ui.view">
+        <field name="name">Exam Wizard</field>
+        <field name="model">exam.wizard.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_names"/>
+                <field name="subject_names"/>
+                <field name="level"/>
+                <field name="marks"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

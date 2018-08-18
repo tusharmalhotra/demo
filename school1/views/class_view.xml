@@ -2,7 +2,7 @@
 <odoo>
     <act_window
         id="class_action"
-        name="class"
+        name="Class"
         res_model="class.data"/>
 
     <menuitem
@@ -14,7 +14,7 @@
 
     <menuitem
         id="class_menuitem_submenu"
-        name="class List"
+        name="Class List"
         action="class_action"
         parent="school_menuitem"
         sequence="5"/>
@@ -26,30 +26,50 @@
             <form>
                 <group>
                     <field name="class_id"/>
+                    <field name="name"/>
+                </group>
+                <group>
                     <field name="class_room"/>
+                    <field name="class_subject"  widget="many2many">
+                        <tree editable="bottom">
+                            <field name="id"/>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                    <field name="class_teacher" widget="many2many">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                        </tree>
+                    </field>
                 </group>
             </form>
         </field>
     </record>
 
     <record id="class_view_tree" model="ir.ui.view">
-        <field name="name">class Form</field>
+        <field name="name">Class Form</field>
         <field name="model">class.data</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="class_id"/>
+                <field name="name"/>
                 <field name="class_room"/>
+                <field name="class_subject"/>
+                <field name="class_teacher"/>
             </tree>
         </field>
     </record>
 
     <record id="class_view_search" model="ir.ui.view">
-        <field name="name">class Form</field>
+        <field name="name">Class Form</field>
         <field name="model">class.data</field>
         <field name="arch" type="xml">
             <search>
                 <field name="class_id"/>
+                <field name="name"/>
                 <field name="class_room"/>
+                <field name="class_subject"/>
+                <field name="class_teacher"/>
             </search>
         </field>
     </record>

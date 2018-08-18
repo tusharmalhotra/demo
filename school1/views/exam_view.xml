@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <act_window
+        id="exam_action"
+        name="Exams"
+        res_model="exam.data"/>
+
+    <menuitem
+        id="exam_menuitem"
+        name="Exams Data"
+        action=""
+        parent=""
+        sequence="5"/>
+
+    <menuitem
+        id="exam_menuitem_submenu"
+        name="Exams List"
+        action="exam_action"
+        parent="school_menuitem"
+        sequence="5"/>
+
+    <record id="exam_view_form" model="ir.ui.view">
+        <field name="name">Exams Form</field>
+        <field name="model">exam.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="exam_id" string="Exam ID"/>
+                    <field name="student_names" string="Student Name"/>
+                    <field name="subject_names" string="Subject Name"/>
+                    <field name="exam_marks" string="Marks"/>
+                    <field name="exam_level" string="Exam Level"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="exam_view_tree" model="ir.ui.view">
+        <field name="name">Exams Form</field>
+        <field name="model">exam.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="exam_id"/>
+                <field name="student_names" string="Student Name"/>
+                <field name="subject_names" string="Subject Name"/>
+                <field name="exam_marks"/>
+                <field name="exam_level"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--<record id="exam_view_search" model="ir.ui.view">-->
+        <!--<field name="name">Exams Form</field>-->
+        <!--<field name="model">exam.data</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<search>-->
+                <!--<field name="exam_id"/>-->
+                <!--<field name="student_names"/>-->
+                <!--<field name="subject_names"/>-->
+                <!--<field name="exam_marks"/>-->
+            <!--</search>-->
+        <!--</field>-->
+    <!--</record>-->
+</odoo>

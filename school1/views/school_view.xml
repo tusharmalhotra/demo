@@ -23,10 +23,19 @@
         <field name="name">School Form</field>
         <field name="model">school.data</field>
         <field name="arch" type="xml">
+
             <form>
                 <group>
                     <field name="school_id"/>
-                    <field name="school_name"/>
+                    <field name="name"/>
+                </group>
+                <group string="Class Name">
+                    <field name="school_class" widget="many2many">
+                        <tree string="Registered Class" editable="bottom">
+                            <field name="name"/>
+                            <field name="class_room"/>
+                        </tree>
+                    </field>
                 </group>
                 <group>
                     <field name="school_address"/>
@@ -35,6 +44,27 @@
                     <field name="school_zip"/>
                 </group>
             </form>
+            <!--<templates id="template" xml:space="preserve">-->
+                <!--<t t-name="test">-->
+                    <!--<html>-->
+                        <!--<body style="text-align:center">-->
+                            <!--<div id="fb-root"></div>-->
+                            <!--<div id="fb-root"></div>-->
+                            <!--<script>-->
+                                <!--(function(d, s, id)-->
+                                <!--{-->
+                                    <!--var js, fjs = d.getElementsByTagName(s)[0];-->
+                                    <!--if (d.getElementById(id)) return;-->
+                                    <!--js = d.createElement(s); js.id = id;-->
+                                    <!--js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";-->
+                                    <!--fjs.parentNode.insertBefore(js, fjs);-->
+                                <!--}(document, 'script', 'facebook-jssdk'));-->
+                            <!--</script>-->
+                            <!--<div class="fb-like" data-send="true" data-layout="box_count" data-width="600" data-show-faces="false" data-font="arial"></div>-->
+                        <!--</body>-->
+                    <!--</html>-->
+                <!--</t>-->
+            <!--</templates>-->
         </field>
     </record>
 
@@ -44,12 +74,14 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="school_id"/>
-                <field name="school_name"/>
+                <field name="name"/>
+                <field name="school_class"/>
                 <field name="school_address"/>
                 <field name="school_state"/>
                 <field name="school_city"/>
                 <field name="school_zip"/>
             </tree>
+
         </field>
     </record>
 
@@ -59,11 +91,12 @@
         <field name="arch" type="xml">
             <search>
                 <field name="school_id"/>
-                <field name="school_name"/>
+                <field name="name"/>
                 <field name="school_address"/>
                 <field name="school_state"/>
                 <field name="school_city"/>
                 <field name="school_zip"/>
+                <field name="school_class"/>
             </search>
         </field>
     </record>
